@@ -7,8 +7,11 @@ export async function getProductsDB(): Promise<Product[]> {
         const response = await fetch(`${APIURL}/products`)
         const products: Product[] = await response.json();
         return products;
-    }catch (error: any) {
-        throw new Error(error)
+    }catch (error: unknown) {
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };
 
@@ -18,7 +21,10 @@ export async function getProductsById(id: string): Promise<Product> {
         const productFiltered = products.find((product) => product.id.toString() === id)
         if(!productFiltered) throw new Error("Producto no encontrado")
         return productFiltered;
-    }catch (error: any) {
-        throw new Error(error)
+    }catch (error: unknown) {
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };

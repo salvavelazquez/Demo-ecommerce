@@ -15,13 +15,18 @@ export async function createOrder(products: number[], token: string) {
         })
         alert("Buy Succesfully")
         return response.json();
-    }catch (error: any) {
+    }catch (error: unknown) {
         alert("An Error ocurred")
-        throw new Error(error)
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };
 
 export async function getOrders(token: string) {
+    type NewType = unknown;
+
     try {
         const response = await fetch(`${APIURL}/users/orders`, {
             method: "GET",
@@ -31,7 +36,10 @@ export async function getOrders(token: string) {
             }
         })
         return response.json();
-    }catch (error: any) {
-        throw new Error(error)
+    }catch (error: unknown) {
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };
