@@ -17,9 +17,12 @@ export async function register(userData: IRegisterProps) {
         } else {
             alert("Falló el registro del nuevo usuario")
         }
-    }catch (error: any) {
+    }catch (error: unknown) {
         alert("catch: Falló el registro del nuevo usuario")
-        throw new Error(error)
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };
 
@@ -37,8 +40,11 @@ export async function login(userData: IloginProps) {
         } else {
             alert("Falló el login del usuario")
         }
-    }catch (error: any) {
+    }catch (error: unknown) {
         alert("catch: Falló el login del usuario")
-        throw new Error(error)
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+        throw new Error("An unexpected error occurred");
     }
 };
