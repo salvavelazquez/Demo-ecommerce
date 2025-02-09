@@ -21,7 +21,6 @@ const RegisterView = () => {
                 }}
                 onSubmit={async (values) => {
                     await register(values);
-                    // alert("Usuario registrado con exito");
                     router.push("/login");
                 }}
                 validate={validateRegisterForm}

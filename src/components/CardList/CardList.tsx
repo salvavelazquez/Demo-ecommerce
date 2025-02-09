@@ -1,4 +1,4 @@
-// import { productsMock } from "../../mocks/products";
+
 import React from "react";
 import Card from "../Card/Card";
 import { getProductsDB } from "@/mocks/product.helper";

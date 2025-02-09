@@ -8,18 +8,10 @@ export interface Product {
     categoryId: number;
 }
 
-// enum Role{
-//     ADMIN = "admin",
-//     USER = "user",
-// }
 
 export interface IloginProps {
-    // id: number;
-    // name: string;
     email: string;
     password: string;
-    // phone: string;
-    // role: "admin" | "user";
 }
 
 export interface IloginErrors {
