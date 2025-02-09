@@ -1,19 +1,14 @@
 import { Product } from "@/interfaces";
-import Link from "next/link";
 
-
-const Card: React.FC<Product> = ({ name, image, price, id }) => {
+const Card: React.FC<Product> = ({ name, image, price }) => {
   
   return (
-    //<Link href={`/products/${id}`}>
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
         <p>
           <img className="p-8 rounded-t-lg" src={image} alt={name} />
         </p>
         <div className="px-5 pb-5">
-          {/* <p> */}
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900">{name}</h5>
-          {/* </p> */}
+        <h5 className="text-xl font-semibold tracking-tight text-gray-900">{name}</h5>
           
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-gray-900">${price}</span>
@@ -21,8 +16,6 @@ const Card: React.FC<Product> = ({ name, image, price, id }) => {
           </div>
         </div>
       </div>
-
-   // </Link>
   );
 };
 
