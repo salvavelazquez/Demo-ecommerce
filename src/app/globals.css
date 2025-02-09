@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary-color: #B6FFFA;
+  --secondary-color: #98E4FF;
+  --tertiary-color: #80B3FF;
+  --quaternary-color: #687EFF;
+}
+
+body {
+  @apply bg-tertiary flex flex-col min-h-screen;
+}
+
+.container {
+  @apply mx-auto max-w-[80%];
+}
+
+footer {
+  @apply mt-auto;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--primary-font);
+  @apply font-bold;
+}
